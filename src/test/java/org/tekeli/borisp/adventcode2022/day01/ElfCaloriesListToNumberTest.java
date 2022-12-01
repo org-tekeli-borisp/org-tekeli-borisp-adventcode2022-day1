@@ -64,4 +64,15 @@ public class ElfCaloriesListToNumberTest {
 
         assertThat(apply).isEqualTo(42);
     }
+
+    @Test
+    void shouldReturnSumOfNumberInCaseElfCaloriesListHasMultipleIsNumber() {
+        final var elfCaloriesList = """
+                1
+                2
+                """;
+        final Integer apply = unitUnderTest.appy(elfCaloriesList);
+
+        assertThat(apply).isEqualTo(3);
+    }
 }

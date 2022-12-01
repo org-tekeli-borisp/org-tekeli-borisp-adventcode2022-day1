@@ -12,7 +12,14 @@ public class ElfCaloriesListToNumberImpl implements ElfCaloriesListToNumber {
     public Integer appy(final String elfCaloriesList) {
         return Optional.ofNullable(elfCaloriesList)
                 .filter(not(String::isBlank))
-                .flatMap(lineToNumber::apply)
+                .map(this::map)
                 .orElse(0);
+    }
+
+    private Integer map(final String elfCaloriesList) {
+        return elfCaloriesList
+                .lines()
+                .map(lineToNumber::apply)
+                .reduce(0, Integer::sum);
     }
 }
