@@ -1,4 +1,6 @@
 package org.tekeli.borisp.adventcode2022.day01;
 
 public class ElvesCaloriesListToStreamOfElfCaloriesListTest {
+
+    private ElvesCaloriesListToStreamOfElfCaloriesList unitUnderTest;
 }
