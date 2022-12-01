@@ -61,4 +61,12 @@ public class LineToNumberTest {
         assertThat(apply).isPresent();
         assertThat(apply.get()).isInstanceOf(Integer.class);
     }
+
+    @Test
+    void shouldProduceTheRightNumber() {
+        final var apply = unitUnderTest.apply("42");
+
+        assertThat(apply).isPresent();
+        assertThat(apply.get()).isEqualTo(42);
+    }
 }
