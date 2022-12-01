@@ -30,7 +30,6 @@ public class LineToNumberTest {
 
         final var apply = unitUnderTest.apply(line);
 
-        //noinspection unchecked
         assertThat(apply).isInstanceOf(Optional.class);
     }
 
@@ -38,7 +37,6 @@ public class LineToNumberTest {
     void shouldProduceOptionalEmptyInCaseLineIsNull() {
         final var apply = unitUnderTest.apply(null);
 
-        //noinspection unchecked
         assertThat(apply).isEmpty();
     }
 
@@ -46,7 +44,6 @@ public class LineToNumberTest {
     void shouldProduceOptionalEmptyInCaseLineIsNotNumber() {
         final var apply = unitUnderTest.apply("NOT NUMBER");
 
-        //noinspection unchecked
         assertThat(apply).isEmpty();
     }
 
@@ -54,7 +51,14 @@ public class LineToNumberTest {
     void shouldProduceOptionalPresentInCaseLineIsNumber() {
         final var apply = unitUnderTest.apply("42");
 
-        //noinspection unchecked
         assertThat(apply).isPresent();
+    }
+
+    @Test
+    void shouldProduceOptionalOfInteger() {
+        final var apply = unitUnderTest.apply("42");
+
+        assertThat(apply).isPresent();
+        assertThat(apply.get()).isInstanceOf(Integer.class);
     }
 }

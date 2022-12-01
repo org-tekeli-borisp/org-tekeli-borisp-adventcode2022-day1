@@ -4,7 +4,7 @@ import java.util.Optional;
 
 public class LineToNumberImpl implements LineToNumber {
     @Override
-    public Optional apply(final String line) {
+    public Optional<Integer> apply(final String line) {
         return Optional.ofNullable(line)
                 .map(this::map);
     }
