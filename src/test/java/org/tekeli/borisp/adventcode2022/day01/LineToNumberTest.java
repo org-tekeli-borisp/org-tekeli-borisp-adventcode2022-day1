@@ -49,4 +49,12 @@ public class LineToNumberTest {
         //noinspection unchecked
         assertThat(apply).isEmpty();
     }
+
+    @Test
+    void shouldProduceOptionalPresentInCaseLineIsNumber() {
+        final var apply = unitUnderTest.apply("42");
+
+        //noinspection unchecked
+        assertThat(apply).isPresent();
+    }
 }
