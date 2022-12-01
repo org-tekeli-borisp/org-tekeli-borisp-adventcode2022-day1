@@ -42,4 +42,11 @@ public class ElvesCaloriesListToStreamOfElfCaloriesListTest {
         assertThat(apply).isInstanceOf(Stream.class);
         apply.forEach(s -> assertThat(s).isInstanceOf(String.class));
     }
+
+    @Test
+    void shouldProduceEmptyStreamInCaseElvesCaloriesListIsNull() {
+        final var apply = unitUnderTest.apply(null);
+
+        assertThat(apply).isEmpty();
+    }
 }
