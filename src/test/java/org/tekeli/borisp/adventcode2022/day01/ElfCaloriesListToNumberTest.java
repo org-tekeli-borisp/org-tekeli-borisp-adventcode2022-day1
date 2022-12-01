@@ -18,49 +18,49 @@ public class ElfCaloriesListToNumberTest {
     void shouldConsumeString() {
         final var elfCaloriesList = "anything";
 
-        assertDoesNotThrow(() -> unitUnderTest.appy(elfCaloriesList));
+        assertDoesNotThrow(() -> unitUnderTest.apply(elfCaloriesList));
     }
 
     @Test
     void shouldProduceInteger() {
         final var elfCaloriesList = "anything";
 
-        final Integer apply = unitUnderTest.appy(elfCaloriesList);
+        final Integer apply = unitUnderTest.apply(elfCaloriesList);
 
         assertThat(apply).isInstanceOf(Integer.class);
     }
 
     @Test
     void shouldReturnZeroInCaseElfCaloriesListIsNull() {
-        final Integer apply = unitUnderTest.appy(null);
+        final Integer apply = unitUnderTest.apply(null);
 
         assertThat(apply).isZero();
     }
 
     @Test
     void shouldReturnZeroInCaseElfCaloriesListIsEmpty() {
-        final Integer apply = unitUnderTest.appy("");
+        final Integer apply = unitUnderTest.apply("");
 
         assertThat(apply).isZero();
     }
 
     @Test
     void shouldReturnZeroInCaseElfCaloriesListIsBlank() {
-        final Integer apply = unitUnderTest.appy("  ");
+        final Integer apply = unitUnderTest.apply("  ");
 
         assertThat(apply).isZero();
     }
 
     @Test
     void shouldReturnZeroInCaseElfCaloriesListIsNotNumber() {
-        final Integer apply = unitUnderTest.appy("NOT_NUMBER");
+        final Integer apply = unitUnderTest.apply("NOT_NUMBER");
 
         assertThat(apply).isZero();
     }
 
     @Test
     void shouldReturnNumberInCaseElfCaloriesListIsNumber() {
-        final Integer apply = unitUnderTest.appy("42");
+        final Integer apply = unitUnderTest.apply("42");
 
         assertThat(apply).isEqualTo(42);
     }
@@ -71,7 +71,7 @@ public class ElfCaloriesListToNumberTest {
                 1
                 2
                 """;
-        final Integer apply = unitUnderTest.appy(elfCaloriesList);
+        final Integer apply = unitUnderTest.apply(elfCaloriesList);
 
         assertThat(apply).isEqualTo(3);
     }
@@ -83,7 +83,7 @@ public class ElfCaloriesListToNumberTest {
                 NOT_NUMBER
                 2
                 """;
-        final Integer apply = unitUnderTest.appy(elfCaloriesList);
+        final Integer apply = unitUnderTest.apply(elfCaloriesList);
 
         assertThat(apply).isEqualTo(3);
     }

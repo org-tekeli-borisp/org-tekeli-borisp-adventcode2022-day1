@@ -9,7 +9,7 @@ public class ElfCaloriesListToNumberImpl implements ElfCaloriesListToNumber {
     private final LineToNumber lineToNumber = new LineToNumberImpl();
 
     @Override
-    public Integer appy(final String elfCaloriesList) {
+    public Integer apply(final String elfCaloriesList) {
         return Optional.ofNullable(elfCaloriesList)
                 .filter(not(String::isBlank))
                 .map(this::map)
