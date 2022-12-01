@@ -33,4 +33,12 @@ public class LineToNumberTest {
         //noinspection unchecked
         assertThat(apply).isInstanceOf(Optional.class);
     }
+
+    @Test
+    void shouldProduceOptionalEmptyInCaseLineIsNull() {
+        final var apply = unitUnderTest.apply(null);
+
+        //noinspection unchecked
+        assertThat(apply).isEmpty();
+    }
 }

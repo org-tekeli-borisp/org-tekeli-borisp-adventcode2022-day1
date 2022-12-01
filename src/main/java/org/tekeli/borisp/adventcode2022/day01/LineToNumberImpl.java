@@ -5,7 +5,11 @@ import java.util.Optional;
 public class LineToNumberImpl implements LineToNumber {
     @Override
     public Optional apply(final String line) {
+        return Optional.ofNullable(line)
+                .map(this::map);
+    }
 
-        return Optional.empty();
+    private Integer map(final String s) {
+        return 1;
     }
 }
