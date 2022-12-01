@@ -8,7 +8,7 @@ public class ElfCaloriesListToNumberImpl implements ElfCaloriesListToNumber {
     @Override
     public Integer appy(final String elfCaloriesList) {
         return Optional.ofNullable(elfCaloriesList)
-                .filter(not(String::isEmpty))
+                .filter(not(String::isBlank))
                 .map(this::map)
                 .orElse(0);
     }

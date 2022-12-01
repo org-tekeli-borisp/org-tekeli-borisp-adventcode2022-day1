@@ -43,4 +43,11 @@ public class ElfCaloriesListToNumberTest {
 
         assertThat(apply).isZero();
     }
+
+    @Test
+    void shouldReturnZeroInCaseElfCaloriesListIsBlank() {
+        final Integer apply = unitUnderTest.appy("  ");
+
+        assertThat(apply).isZero();
+    }
 }
