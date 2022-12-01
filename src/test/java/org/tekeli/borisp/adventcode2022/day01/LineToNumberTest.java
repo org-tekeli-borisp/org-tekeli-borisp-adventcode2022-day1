@@ -3,8 +3,6 @@ package org.tekeli.borisp.adventcode2022.day01;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Optional;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
@@ -25,48 +23,32 @@ public class LineToNumberTest {
     }
 
     @Test
-    void shouldProduceOptional() {
+    void shouldProduceInteger() {
         final var line = "LINE";
 
         final var apply = unitUnderTest.apply(line);
 
-        assertThat(apply).isInstanceOf(Optional.class);
+        assertThat(apply).isInstanceOf(Integer.class);
     }
 
     @Test
-    void shouldProduceOptionalEmptyInCaseLineIsNull() {
+    void shouldProduceZeroInCaseLineIsNull() {
         final var apply = unitUnderTest.apply(null);
 
-        assertThat(apply).isEmpty();
+        assertThat(apply).isZero();
     }
 
     @Test
-    void shouldProduceOptionalEmptyInCaseLineIsNotNumber() {
+    void shouldProduceZeroInCaseLineIsNotNumber() {
         final var apply = unitUnderTest.apply("NOT NUMBER");
 
-        assertThat(apply).isEmpty();
+        assertThat(apply).isZero();
     }
 
     @Test
-    void shouldProduceOptionalPresentInCaseLineIsNumber() {
+    void shouldProduceTheInteger() {
         final var apply = unitUnderTest.apply("42");
 
-        assertThat(apply).isPresent();
-    }
-
-    @Test
-    void shouldProduceOptionalOfInteger() {
-        final var apply = unitUnderTest.apply("42");
-
-        assertThat(apply).isPresent();
-        assertThat(apply.get()).isInstanceOf(Integer.class);
-    }
-
-    @Test
-    void shouldProduceTheRightNumber() {
-        final var apply = unitUnderTest.apply("42");
-
-        assertThat(apply).isPresent();
-        assertThat(apply.get()).isEqualTo(42);
+        assertThat(apply).isEqualTo(42);
     }
 }
