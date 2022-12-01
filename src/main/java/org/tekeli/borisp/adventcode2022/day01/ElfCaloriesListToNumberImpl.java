@@ -5,15 +5,14 @@ import java.util.Optional;
 import static java.util.function.Predicate.not;
 
 public class ElfCaloriesListToNumberImpl implements ElfCaloriesListToNumber {
+
+    private final LineToNumber lineToNumber = new LineToNumberImpl();
+
     @Override
     public Integer appy(final String elfCaloriesList) {
         return Optional.ofNullable(elfCaloriesList)
                 .filter(not(String::isBlank))
-                .map(this::map)
+                .flatMap(lineToNumber::apply)
                 .orElse(0);
-    }
-
-    private Integer map(String elfCaloriesList) {
-        return 1;
     }
 }

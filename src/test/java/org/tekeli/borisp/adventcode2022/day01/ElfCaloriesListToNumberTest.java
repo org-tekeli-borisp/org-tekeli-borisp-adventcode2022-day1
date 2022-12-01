@@ -50,4 +50,18 @@ public class ElfCaloriesListToNumberTest {
 
         assertThat(apply).isZero();
     }
+
+    @Test
+    void shouldReturnZeroInCaseElfCaloriesListIsNotNumber() {
+        final Integer apply = unitUnderTest.appy("NOT_NUMBER");
+
+        assertThat(apply).isZero();
+    }
+
+    @Test
+    void shouldReturnNumberInCaseElfCaloriesListIsNumber() {
+        final Integer apply = unitUnderTest.appy("42");
+
+        assertThat(apply).isEqualTo(42);
+    }
 }
