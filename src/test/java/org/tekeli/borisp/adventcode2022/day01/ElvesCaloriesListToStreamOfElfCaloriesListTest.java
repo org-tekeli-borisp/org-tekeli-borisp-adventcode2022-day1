@@ -49,4 +49,11 @@ public class ElvesCaloriesListToStreamOfElfCaloriesListTest {
 
         assertThat(apply).isEmpty();
     }
+
+    @Test
+    void shouldProduceEmptyStreamInCaseElvesCaloriesListIsEmpty() {
+        final var apply = unitUnderTest.apply("");
+
+        assertThat(apply).isEmpty();
+    }
 }
