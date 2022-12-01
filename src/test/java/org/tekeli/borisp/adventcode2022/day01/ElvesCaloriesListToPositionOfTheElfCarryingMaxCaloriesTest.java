@@ -6,13 +6,13 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
-class ElvesCaloriesListToMaxCaloriesCarryingByAnElfTest {
+class ElvesCaloriesListToPositionOfTheElfCarryingMaxCaloriesTest {
 
-    private ElvesCaloriesListToMaxCaloriesCarryingByAnElf unitUnderTest;
+    private ElvesCaloriesListToPositionOfTheElfCarryingMaxCalories unitUnderTest;
 
     @BeforeEach
     void setUp() {
-        unitUnderTest = new ElvesCaloriesListToMaxCaloriesCarryingByAnElfImpl();
+        unitUnderTest = new ElvesCaloriesListToPositionOfTheElfCarryingMaxCaloriesImpl();
     }
 
     @Test

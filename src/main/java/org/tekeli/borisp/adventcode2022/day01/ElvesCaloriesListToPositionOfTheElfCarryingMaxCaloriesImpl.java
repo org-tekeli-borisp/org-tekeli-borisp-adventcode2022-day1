@@ -3,7 +3,7 @@ package org.tekeli.borisp.adventcode2022.day01;
 import java.util.Optional;
 import java.util.function.Predicate;
 
-public class ElvesCaloriesListToMaxCaloriesCarryingByAnElfImpl implements ElvesCaloriesListToMaxCaloriesCarryingByAnElf {
+public class ElvesCaloriesListToPositionOfTheElfCarryingMaxCaloriesImpl implements ElvesCaloriesListToPositionOfTheElfCarryingMaxCalories {
     @Override
     public Integer apply(final String elvesCaloriesList) {
         return Optional.ofNullable(elvesCaloriesList)
