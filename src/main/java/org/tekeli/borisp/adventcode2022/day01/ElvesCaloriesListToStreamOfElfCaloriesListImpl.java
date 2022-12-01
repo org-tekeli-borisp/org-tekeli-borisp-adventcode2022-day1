@@ -1,5 +1,6 @@
 package org.tekeli.borisp.adventcode2022.day01;
 
+import java.util.Arrays;
 import java.util.Optional;
 import java.util.stream.Stream;
 
@@ -15,6 +16,10 @@ public class ElvesCaloriesListToStreamOfElfCaloriesListImpl implements ElvesCalo
     }
 
     private Stream<String> map(final String elvesCaloriesList) {
-        return Stream.of(elvesCaloriesList);
+        return Arrays.stream(elvesCaloriesList
+                .trim()
+                .split("\\n\\n"))
+                .map(String::trim)
+                .filter(not(String::isBlank));
     }
 }

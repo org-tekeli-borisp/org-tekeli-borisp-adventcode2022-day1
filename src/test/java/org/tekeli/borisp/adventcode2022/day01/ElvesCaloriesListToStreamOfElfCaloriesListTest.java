@@ -59,8 +59,45 @@ public class ElvesCaloriesListToStreamOfElfCaloriesListTest {
 
     @Test
     void shouldProduceStreamOfLineInCaseElvesCaloriesListIsOneNonEmptyLine() {
-        final var apply = unitUnderTest.apply("LINE");
+        final var elvesCaloriesList = "LINE";
+        final var apply = unitUnderTest.apply(elvesCaloriesList);
 
         assertThat(apply).containsExactly("LINE");
+    }
+
+    @Test
+    void shouldProduceStreamWithOneElementOfTwoLineInCaseElvesCaloriesListIsTwoNonEmptyLine() {
+        final var elvesCaloriesList = """
+                LINE1
+                LINE2
+                """;
+        final var apply = unitUnderTest.apply(elvesCaloriesList);
+
+        assertThat(apply).containsExactly("LINE1\nLINE2");
+    }
+
+    @Test
+    void shouldProduceStreamWithTwoElementsInCaseElvesCaloriesListIsTwoNonEmptyLineSeparatedByEmptyLine() {
+        final var elvesCaloriesList = """
+                LINE1
+                        
+                LINE2
+                """;
+        final var apply = unitUnderTest.apply(elvesCaloriesList);
+
+        assertThat(apply).containsExactly("LINE1", "LINE2");
+    }
+
+    @Test
+    void shouldProduceStreamWithTwoElementsInCaseElvesCaloriesListIsTwoNonEmptyLineSeparatedByMultipleEmptyLines() {
+        final var elvesCaloriesList = """
+                LINE1
+                     
+                       
+                LINE2
+                """;
+        final var apply = unitUnderTest.apply(elvesCaloriesList);
+
+        assertThat(apply).containsExactly("LINE1", "LINE2");
     }
 }
