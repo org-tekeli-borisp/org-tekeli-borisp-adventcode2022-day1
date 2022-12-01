@@ -38,4 +38,12 @@ class ElvesCaloriesListToMaxCaloriesCarryingByAnElfTest {
 
         assertThat(apply).isZero();
     }
+
+    @Test
+    void shouldProduceZeroInCaseElvesCaloriesListIsEmpty() {
+
+        final var apply = unitUnderTest.apply("");
+
+        assertThat(apply).isZero();
+    }
 }
