@@ -29,4 +29,11 @@ public class ElfCaloriesListToNumberTest {
 
         assertThat(apply).isInstanceOf(Integer.class);
     }
+
+    @Test
+    void shouldReturnZeroInCaseElfCaloriesListIsNull() {
+        final Integer apply = unitUnderTest.appy(null);
+
+        assertThat(apply).isZero();
+    }
 }
