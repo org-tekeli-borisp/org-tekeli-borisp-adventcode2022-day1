@@ -1,3 +1,5 @@
 package org.tekeli.borisp.adventcode2022.day01;
 
-interface ElvesCaloriesListToMaxCaloriesCarryingByAnElf {}
+interface ElvesCaloriesListToMaxCaloriesCarryingByAnElf {
+    void apply(final String elvesCaloriesList);
+}
