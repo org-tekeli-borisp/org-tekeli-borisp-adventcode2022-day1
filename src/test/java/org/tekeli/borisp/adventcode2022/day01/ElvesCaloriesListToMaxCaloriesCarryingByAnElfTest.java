@@ -30,4 +30,12 @@ class ElvesCaloriesListToMaxCaloriesCarryingByAnElfTest {
 
         assertThat(apply).isInstanceOf(Integer.class);
     }
+
+    @Test
+    void shouldProduceZeroInCaseElvesCaloriesListIsNull() {
+
+        final var apply = unitUnderTest.apply(null);
+
+        assertThat(apply).isZero();
+    }
 }
