@@ -14,7 +14,7 @@ public class ElvesCaloriesListToStreamOfElfCaloriesListImpl implements ElvesCalo
                 .orElse(Stream.empty());
     }
 
-    private Stream<String> map(final String s) {
-        return Stream.of("anything");
+    private Stream<String> map(final String elvesCaloriesList) {
+        return Stream.of(elvesCaloriesList);
     }
 }

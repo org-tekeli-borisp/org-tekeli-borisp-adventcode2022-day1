@@ -56,4 +56,11 @@ public class ElvesCaloriesListToStreamOfElfCaloriesListTest {
 
         assertThat(apply).isEmpty();
     }
+
+    @Test
+    void shouldProduceStreamOfLineInCaseElvesCaloriesListIsOneNonEmptyLine() {
+        final var apply = unitUnderTest.apply("LINE");
+
+        assertThat(apply).containsExactly("LINE");
+    }
 }
