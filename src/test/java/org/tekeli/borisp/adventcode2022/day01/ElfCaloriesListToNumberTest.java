@@ -75,4 +75,16 @@ public class ElfCaloriesListToNumberTest {
 
         assertThat(apply).isEqualTo(3);
     }
+
+    @Test
+    void shouldReturnSumOfNumberInCaseElfCaloriesListHasMultipleIsNumberAndNotNumber() {
+        final var elfCaloriesList = """
+                1
+                NOT_NUMBER
+                2
+                """;
+        final Integer apply = unitUnderTest.appy(elfCaloriesList);
+
+        assertThat(apply).isEqualTo(3);
+    }
 }
