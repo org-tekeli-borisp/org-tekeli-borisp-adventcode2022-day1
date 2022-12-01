@@ -9,7 +9,11 @@ public class LineToNumberImpl implements LineToNumber {
                 .map(this::map);
     }
 
-    private Integer map(final String s) {
-        return 1;
+    private Integer map(final String line) {
+        try {
+            return Integer.valueOf(line);
+        }catch (NumberFormatException numberFormatException) {
+            return null;
+        }
     }
 }

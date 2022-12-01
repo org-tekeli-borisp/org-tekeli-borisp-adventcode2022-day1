@@ -41,4 +41,12 @@ public class LineToNumberTest {
         //noinspection unchecked
         assertThat(apply).isEmpty();
     }
+
+    @Test
+    void shouldProduceOptionalEmptyInCaseLineIsNotNumber() {
+        final var apply = unitUnderTest.apply("NOT NUMBER");
+
+        //noinspection unchecked
+        assertThat(apply).isEmpty();
+    }
 }
