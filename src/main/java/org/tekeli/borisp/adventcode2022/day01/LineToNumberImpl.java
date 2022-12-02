@@ -2,7 +2,7 @@ package org.tekeli.borisp.adventcode2022.day01;
 
 import java.util.Optional;
 
-public class LineToNumberImpl implements LineToNumber {
+class LineToNumberImpl implements LineToNumber {
     @Override
     public Integer apply(final String line) {
         return Optional.ofNullable(line)

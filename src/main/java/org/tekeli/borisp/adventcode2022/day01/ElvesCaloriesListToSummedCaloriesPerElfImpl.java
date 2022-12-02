@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
 
-public class ElvesCaloriesListToSummedCaloriesPerElfImpl implements ElvesCaloriesListToSummedCaloriesPerElf {
+class ElvesCaloriesListToSummedCaloriesPerElfImpl implements ElvesCaloriesListToSummedCaloriesPerElf {
 
     private final ElvesCaloriesListToStreamOfElfCaloriesList elvesCaloriesListToStreamOfElfCaloriesList;
     private final ElfCaloriesListToNumber elfCaloriesListToNumber;

@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 
 import static java.util.function.Predicate.not;
 
-public class ElvesCaloriesListToStreamOfElfCaloriesListImpl implements ElvesCaloriesListToStreamOfElfCaloriesList {
+class ElvesCaloriesListToStreamOfElfCaloriesListImpl implements ElvesCaloriesListToStreamOfElfCaloriesList {
     @Override
     public Stream<String> apply(final String elvesCaloriesList) {
         return Optional.ofNullable(elvesCaloriesList)

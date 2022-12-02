@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import static java.util.function.Predicate.not;
 
-public class ElfCaloriesListToNumberImpl implements ElfCaloriesListToNumber {
+class ElfCaloriesListToNumberImpl implements ElfCaloriesListToNumber {
 
     private final LineToNumber lineToNumber = new LineToNumberImpl();
 
