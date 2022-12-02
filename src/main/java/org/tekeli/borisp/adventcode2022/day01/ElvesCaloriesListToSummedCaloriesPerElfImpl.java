@@ -8,9 +8,12 @@ import java.util.function.Predicate;
 public class ElvesCaloriesListToSummedCaloriesPerElfImpl implements ElvesCaloriesListToSummedCaloriesPerElf {
 
     private final ElvesCaloriesListToStreamOfElfCaloriesList elvesCaloriesListToStreamOfElfCaloriesList;
+    private final ElfCaloriesListToNumber elfCaloriesListToNumber;
 
-    public ElvesCaloriesListToSummedCaloriesPerElfImpl(ElvesCaloriesListToStreamOfElfCaloriesList elvesCaloriesListToStreamOfElfCaloriesList) {
+    public ElvesCaloriesListToSummedCaloriesPerElfImpl(final ElvesCaloriesListToStreamOfElfCaloriesList elvesCaloriesListToStreamOfElfCaloriesList,
+                                                       final ElfCaloriesListToNumber elfCaloriesListToNumber) {
         this.elvesCaloriesListToStreamOfElfCaloriesList = elvesCaloriesListToStreamOfElfCaloriesList;
+        this.elfCaloriesListToNumber = elfCaloriesListToNumber;
     }
 
     @Override
@@ -23,6 +26,7 @@ public class ElvesCaloriesListToSummedCaloriesPerElfImpl implements ElvesCalorie
 
     private List<Integer> toList(final String elvesCaloriesList) {
         elvesCaloriesListToStreamOfElfCaloriesList.apply(elvesCaloriesList);
+        elfCaloriesListToNumber.apply(elvesCaloriesList);
         return List.of(1);
     }
 }

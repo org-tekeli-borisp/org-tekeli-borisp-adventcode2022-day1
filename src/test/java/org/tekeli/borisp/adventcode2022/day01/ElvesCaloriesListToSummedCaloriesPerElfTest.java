@@ -15,10 +15,13 @@ class ElvesCaloriesListToSummedCaloriesPerElfTest {
     private ElvesCaloriesListToSummedCaloriesPerElf unitUnderTest;
     private ElvesCaloriesListToStreamOfElfCaloriesList elvesCaloriesListToStreamOfElfCaloriesList;
 
+    private ElfCaloriesListToNumber elfCaloriesListToNumber;
+
     @BeforeEach
     void setUp() {
         elvesCaloriesListToStreamOfElfCaloriesList = spy(new ElvesCaloriesListToStreamOfElfCaloriesListImpl());
-        unitUnderTest = new ElvesCaloriesListToSummedCaloriesPerElfImpl(elvesCaloriesListToStreamOfElfCaloriesList);
+        elfCaloriesListToNumber = spy(new ElfCaloriesListToNumberImpl());
+        unitUnderTest = new ElvesCaloriesListToSummedCaloriesPerElfImpl(elvesCaloriesListToStreamOfElfCaloriesList, elfCaloriesListToNumber);
     }
 
     @Test
@@ -69,5 +72,14 @@ class ElvesCaloriesListToSummedCaloriesPerElfTest {
         unitUnderTest.apply(elvesCaloriesList);
 
         verify(elvesCaloriesListToStreamOfElfCaloriesList).apply(elvesCaloriesList);
+    }
+
+    @Test
+    void shouldUseElfCaloriesListToNumber() {
+        final var elvesCaloriesList = "anything";
+
+        unitUnderTest.apply(elvesCaloriesList);
+
+        verify(elfCaloriesListToNumber).apply(elvesCaloriesList);
     }
 }
