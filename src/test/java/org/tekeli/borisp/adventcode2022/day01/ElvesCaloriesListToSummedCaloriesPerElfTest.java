@@ -7,14 +7,18 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.verify;
 
 class ElvesCaloriesListToSummedCaloriesPerElfTest {
 
     private ElvesCaloriesListToSummedCaloriesPerElf unitUnderTest;
+    private ElvesCaloriesListToStreamOfElfCaloriesList elvesCaloriesListToStreamOfElfCaloriesList;
 
     @BeforeEach
     void setUp() {
-        unitUnderTest = new ElvesCaloriesListToSummedCaloriesPerElfImpl();
+        elvesCaloriesListToStreamOfElfCaloriesList = spy(new ElvesCaloriesListToStreamOfElfCaloriesListImpl());
+        unitUnderTest = new ElvesCaloriesListToSummedCaloriesPerElfImpl(elvesCaloriesListToStreamOfElfCaloriesList);
     }
 
     @Test
@@ -56,5 +60,14 @@ class ElvesCaloriesListToSummedCaloriesPerElfTest {
         final var apply = unitUnderTest.apply("");
 
         assertThat(apply).isEmpty();
+    }
+
+    @Test
+    void shouldUseElvesCaloriesListToStreamOfElfCaloriesList() {
+        final var elvesCaloriesList = "anything";
+
+        unitUnderTest.apply(elvesCaloriesList);
+
+        verify(elvesCaloriesListToStreamOfElfCaloriesList).apply(elvesCaloriesList);
     }
 }

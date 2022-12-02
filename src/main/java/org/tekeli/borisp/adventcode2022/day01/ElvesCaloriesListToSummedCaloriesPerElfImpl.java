@@ -6,6 +6,13 @@ import java.util.Optional;
 import java.util.function.Predicate;
 
 public class ElvesCaloriesListToSummedCaloriesPerElfImpl implements ElvesCaloriesListToSummedCaloriesPerElf {
+
+    private final ElvesCaloriesListToStreamOfElfCaloriesList elvesCaloriesListToStreamOfElfCaloriesList;
+
+    public ElvesCaloriesListToSummedCaloriesPerElfImpl(ElvesCaloriesListToStreamOfElfCaloriesList elvesCaloriesListToStreamOfElfCaloriesList) {
+        this.elvesCaloriesListToStreamOfElfCaloriesList = elvesCaloriesListToStreamOfElfCaloriesList;
+    }
+
     @Override
     public List<Integer> apply(final String elvesCaloriesList) {
         return Optional.ofNullable(elvesCaloriesList)
@@ -15,6 +22,7 @@ public class ElvesCaloriesListToSummedCaloriesPerElfImpl implements ElvesCalorie
     }
 
     private List<Integer> toList(final String elvesCaloriesList) {
+        elvesCaloriesListToStreamOfElfCaloriesList.apply(elvesCaloriesList);
         return List.of(1);
     }
 }
