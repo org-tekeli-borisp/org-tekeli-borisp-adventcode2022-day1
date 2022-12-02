@@ -25,8 +25,9 @@ public class ElvesCaloriesListToSummedCaloriesPerElfImpl implements ElvesCalorie
     }
 
     private List<Integer> toList(final String elvesCaloriesList) {
-        elvesCaloriesListToStreamOfElfCaloriesList.apply(elvesCaloriesList);
-        elfCaloriesListToNumber.apply(elvesCaloriesList);
-        return List.of(1);
+        return elvesCaloriesListToStreamOfElfCaloriesList
+                .apply(elvesCaloriesList)
+                .map(elfCaloriesListToNumber::apply)
+                .toList();
     }
 }

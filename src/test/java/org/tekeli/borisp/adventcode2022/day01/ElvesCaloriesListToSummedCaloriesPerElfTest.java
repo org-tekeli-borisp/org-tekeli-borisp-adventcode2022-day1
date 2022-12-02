@@ -82,4 +82,31 @@ class ElvesCaloriesListToSummedCaloriesPerElfTest {
 
         verify(elfCaloriesListToNumber).apply(elvesCaloriesList);
     }
+
+    @Test
+    void shouldUProduceListToNumber() {
+        final var elvesCaloriesList = "42";
+
+        final var apply = unitUnderTest.apply(elvesCaloriesList);
+
+        assertThat(apply).containsExactly(42);
+    }
+
+    @Test
+    void shouldUProduceListToSummedNumber() {
+        final var elvesCaloriesList = "42\n13";
+
+        final var apply = unitUnderTest.apply(elvesCaloriesList);
+
+        assertThat(apply).containsExactly(55);
+    }
+
+    @Test
+    void shouldUProduceListToSummedNumbers() {
+        final var elvesCaloriesList = "42\n13\n\n8";
+
+        final var apply = unitUnderTest.apply(elvesCaloriesList);
+
+        assertThat(apply).containsExactly(55, 8);
+    }
 }
