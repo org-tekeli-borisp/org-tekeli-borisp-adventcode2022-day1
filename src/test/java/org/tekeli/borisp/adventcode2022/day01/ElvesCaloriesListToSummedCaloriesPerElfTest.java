@@ -84,7 +84,7 @@ class ElvesCaloriesListToSummedCaloriesPerElfTest {
     }
 
     @Test
-    void shouldUProduceListToNumber() {
+    void shouldProduceListToNumber() {
         final var elvesCaloriesList = "42";
 
         final var apply = unitUnderTest.apply(elvesCaloriesList);
@@ -93,7 +93,7 @@ class ElvesCaloriesListToSummedCaloriesPerElfTest {
     }
 
     @Test
-    void shouldUProduceListToSummedNumber() {
+    void shouldProduceListOfSummedNumberForOneElf() {
         final var elvesCaloriesList = "42\n13";
 
         final var apply = unitUnderTest.apply(elvesCaloriesList);
@@ -102,7 +102,7 @@ class ElvesCaloriesListToSummedCaloriesPerElfTest {
     }
 
     @Test
-    void shouldUProduceListToSummedNumbers() {
+    void shouldProduceListOfSummedNumbersForManyElves() {
         final var elvesCaloriesList = "42\n13\n\n8";
 
         final var apply = unitUnderTest.apply(elvesCaloriesList);
